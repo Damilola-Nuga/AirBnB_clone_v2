@@ -62,8 +62,7 @@ class BaseModel:
         if "updated_at" in new_dict:
             new_dict["updated_at"] = new_dict["updated_at"].isoformat()
         if '_password' in new_dict:
-            new_dict['password'] = new_dict['_password']
-            new_dict.pop('_password', None)
+            new_dict['password'] = new_dict.pop('_password', None)
         if 'amenities' in new_dict:
             new_dict.pop('amenities', None)
         if 'reviews' in new_dict:

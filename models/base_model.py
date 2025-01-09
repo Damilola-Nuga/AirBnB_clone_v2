@@ -57,15 +57,17 @@ class BaseModel:
     def to_dict(self, save_to_disk=False):
         """Convert instance into dict format"""
         new_dict = self.__dict__.copy()
-        if "created_at" in new_dict:
-            new_dict["created_at"] = new_dict["created_at"].isoformat()
-        if "updated_at" in new_dict:
-            new_dict["updated_at"] = new_dict["updated_at"].isoformat()
-        if '_password' in new_dict:
-            new_dict['password'] = new_dict.pop('_password', None)
-        if 'amenities' in new_dict:
+	if include_dates:
+	    if "created_at" in new_dict:
+		new_dict["created_at"] = new_dict["created_at"].isoformat()
+	    if "updated_at" in new_dict:
+		new_dict["updated_at"] = new_dict["updated_at"].isoformat()
+    
+    	if '_password' in new_dict:
+	    new_dict['password'] = new_dict.pop('_password', None)
+    	if 'amenities' in new_dict:
             new_dict.pop('amenities', None)
-        if 'reviews' in new_dict:
+    	if 'reviews' in new_dict:
             new_dict.pop('reviews', None)
         new_dict["__class__"] = self.__class__.__name__
         new_dict.pop('_sa_instance_state', None)

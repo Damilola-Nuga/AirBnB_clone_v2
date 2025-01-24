@@ -9,7 +9,7 @@ from datetime import datetime
 
 
 # Set the host IP addresses for web-01 && web-02
-env.hosts = ['54.167.148.198', '34.201.61.181']
+env.hosts = ['54.89.75.134', '54.90.56.53']
 env.user = "ubuntu"
 
 
